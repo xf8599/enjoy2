@@ -97,6 +97,8 @@
 	if(action) {
 		Target* target = [self state];
 		[[configsController currentConfig] setTarget: target forAction: action];
+		// Persist the change to disk immediately so it survives an unclean exit
+		[configsController save];
 	}
 }
 

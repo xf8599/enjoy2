@@ -20,13 +20,13 @@
                 <menuItem title="enjoy3" id="56">
                     <menu key="submenu" title="enjoy3" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About enjoy3" id="58">
+                            <menuItem title="关于 enjoy3" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Check for Updates..." id="760">
+                            <menuItem title="检查更新…" id="760">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForUpdates:" target="759" id="761"/>
@@ -35,28 +35,28 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129" userLabel="121"/>
+                            <menuItem title="偏好设置…" keyEquivalent="," id="129" userLabel="121"/>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Services" id="131">
-                                <menu key="submenu" title="Services" systemMenu="services" id="130"/>
+                            <menuItem title="服务" id="131">
+                                <menu key="submenu" title="服务" systemMenu="services" id="130"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide enjoy3" keyEquivalent="h" id="134">
+                            <menuItem title="隐藏 enjoy3" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                            <menuItem title="隐藏其他" keyEquivalent="h" id="145">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="hideOtherApplications:" target="-1" id="368"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show All" id="150">
+                            <menuItem title="全部显示" id="150">
                                 <connections>
                                     <action selector="unhideAllApplications:" target="-1" id="370"/>
                                 </connections>
@@ -64,7 +64,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quit enjoy3" keyEquivalent="q" id="136" userLabel="1111">
+                            <menuItem title="退出 enjoy3" keyEquivalent="q" id="136" userLabel="1111">
                                 <connections>
                                     <action selector="terminate:" target="-3" id="449"/>
                                 </connections>
@@ -72,10 +72,10 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="File" id="83">
-                    <menu key="submenu" title="File" id="81">
+                <menuItem title="文件" id="83">
+                    <menu key="submenu" title="文件" id="81">
                         <items>
-                            <menuItem title="Joysticks active" id="606">
+                            <menuItem title="启用手柄" id="606">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="toggleActivity:" target="482" id="610"/>
@@ -85,15 +85,15 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Edit" id="217">
-                    <menu key="submenu" title="Edit" id="205">
+                <menuItem title="编辑" id="217">
+                    <menu key="submenu" title="编辑" id="205">
                         <items>
-                            <menuItem title="Undo" keyEquivalent="z" id="207">
+                            <menuItem title="撤销" keyEquivalent="z" id="207">
                                 <connections>
                                     <action selector="undo:" target="-1" id="223"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Redo" keyEquivalent="Z" id="215">
+                            <menuItem title="重做" keyEquivalent="Z" id="215">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="redo:" target="-1" id="231"/>
@@ -102,27 +102,27 @@
                             <menuItem isSeparatorItem="YES" id="206">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Cut" keyEquivalent="x" id="199">
+                            <menuItem title="剪切" keyEquivalent="x" id="199">
                                 <connections>
                                     <action selector="cut:" target="-1" id="228"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Copy" keyEquivalent="c" id="197">
+                            <menuItem title="复制" keyEquivalent="c" id="197">
                                 <connections>
                                     <action selector="copy:" target="-1" id="224"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Paste" keyEquivalent="v" id="203">
+                            <menuItem title="粘贴" keyEquivalent="v" id="203">
                                 <connections>
                                     <action selector="paste:" target="-1" id="226"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Delete" id="202">
+                            <menuItem title="删除" id="202">
                                 <connections>
                                     <action selector="delete:" target="-1" id="235"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Select All" keyEquivalent="a" id="198">
+                            <menuItem title="全选" keyEquivalent="a" id="198">
                                 <connections>
                                     <action selector="selectAll:" target="-1" id="232"/>
                                 </connections>
@@ -130,20 +130,20 @@
                             <menuItem isSeparatorItem="YES" id="214">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Find" id="218">
-                                <menu key="submenu" title="Find" id="220">
+                            <menuItem title="查找" id="218">
+                                <menu key="submenu" title="查找" id="220">
                                     <items>
-                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="209">
+                                        <menuItem title="查找…" tag="1" keyEquivalent="f" id="209">
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="241"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="208"/>
-                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="213">
+                                        <menuItem title="查找下一个" tag="2" keyEquivalent="g" id="208"/>
+                                        <menuItem title="查找上一个" tag="3" keyEquivalent="G" id="213">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                         </menuItem>
-                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="221"/>
-                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="210">
+                                        <menuItem title="用所选内容查找" tag="7" keyEquivalent="e" id="221"/>
+                                        <menuItem title="跳转到所选内容" keyEquivalent="j" id="210">
                                             <connections>
                                                 <action selector="centerSelectionInVisibleArea:" target="-1" id="245"/>
                                             </connections>
@@ -151,25 +151,25 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Spelling and Grammar" id="216">
-                                <menu key="submenu" title="Spelling and Grammar" id="200">
+                            <menuItem title="拼写和语法" id="216">
+                                <menu key="submenu" title="拼写和语法" id="200">
                                     <items>
-                                        <menuItem title="Show Spelling…" keyEquivalent=":" id="204">
+                                        <menuItem title="显示拼写…" keyEquivalent=":" id="204">
                                             <connections>
                                                 <action selector="showGuessPanel:" target="-1" id="230"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Check Spelling" keyEquivalent=";" id="201">
+                                        <menuItem title="检查拼写" keyEquivalent=";" id="201">
                                             <connections>
                                                 <action selector="checkSpelling:" target="-1" id="225"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Check Spelling While Typing" id="219">
+                                        <menuItem title="输入时检查拼写" id="219">
                                             <connections>
                                                 <action selector="toggleContinuousSpellChecking:" target="-1" id="222"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Check Grammar With Spelling" id="346">
+                                        <menuItem title="检查语法与拼写" id="346">
                                             <connections>
                                                 <action selector="toggleGrammarChecking:" target="-1" id="347"/>
                                             </connections>
@@ -177,20 +177,20 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Substitutions" id="348">
-                                <menu key="submenu" title="Substitutions" id="349">
+                            <menuItem title="文本替换" id="348">
+                                <menu key="submenu" title="文本替换" id="349">
                                     <items>
-                                        <menuItem title="Smart Copy/Paste" tag="1" keyEquivalent="f" id="350">
+                                        <menuItem title="智能复制/粘贴" tag="1" keyEquivalent="f" id="350">
                                             <connections>
                                                 <action selector="toggleSmartInsertDelete:" target="-1" id="355"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Smart Quotes" tag="2" keyEquivalent="g" id="351">
+                                        <menuItem title="智能引号" tag="2" keyEquivalent="g" id="351">
                                             <connections>
                                                 <action selector="toggleAutomaticQuoteSubstitution:" target="-1" id="356"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Smart Links" tag="3" keyEquivalent="G" id="354">
+                                        <menuItem title="智能链接" tag="3" keyEquivalent="G" id="354">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
                                                 <action selector="toggleAutomaticLinkDetection:" target="-1" id="357"/>
@@ -199,15 +199,15 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Speech" id="211">
-                                <menu key="submenu" title="Speech" id="212">
+                            <menuItem title="语音" id="211">
+                                <menu key="submenu" title="语音" id="212">
                                     <items>
-                                        <menuItem title="Start Speaking" id="196">
+                                        <menuItem title="开始朗读" id="196">
                                             <connections>
                                                 <action selector="startSpeaking:" target="-1" id="233"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Stop Speaking" id="195">
+                                        <menuItem title="停止朗读" id="195">
                                             <connections>
                                                 <action selector="stopSpeaking:" target="-1" id="227"/>
                                             </connections>
@@ -218,16 +218,16 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="View" id="295">
-                    <menu key="submenu" title="View" id="296">
+                <menuItem title="视图" id="295">
+                    <menu key="submenu" title="视图" id="296">
                         <items>
-                            <menuItem title="Show Toolbar" keyEquivalent="t" id="297">
+                            <menuItem title="显示工具栏" keyEquivalent="t" id="297">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="toggleToolbarShown:" target="-1" id="366"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Customize Toolbar…" id="298">
+                            <menuItem title="自定义工具栏…" id="298">
                                 <connections>
                                     <action selector="runToolbarCustomizationPalette:" target="-1" id="365"/>
                                 </connections>
@@ -235,15 +235,15 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Window" id="19">
-                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                <menuItem title="窗口" id="19">
+                    <menu key="submenu" title="窗口" systemMenu="window" id="24">
                         <items>
-                            <menuItem title="Minimize" keyEquivalent="m" id="23">
+                            <menuItem title="最小化" keyEquivalent="m" id="23">
                                 <connections>
                                     <action selector="performMiniaturize:" target="-1" id="37"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Zoom" id="239">
+                            <menuItem title="缩放" id="239">
                                 <connections>
                                     <action selector="performZoom:" target="-1" id="240"/>
                                 </connections>
@@ -251,7 +251,7 @@
                             <menuItem isSeparatorItem="YES" id="92">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Bring All to Front" id="5">
+                            <menuItem title="全部置顶" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
                                 </connections>
@@ -259,10 +259,10 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Help" id="103" userLabel="1">
-                    <menu key="submenu" title="Help" id="106" userLabel="2">
+                <menuItem title="帮助" id="103" userLabel="1">
+                    <menu key="submenu" title="帮助" id="106" userLabel="2">
                         <items>
-                            <menuItem title="enjoy3 Help" keyEquivalent="?" id="111">
+                            <menuItem title="enjoy3 帮助" keyEquivalent="?" id="111">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="360"/>
                                 </connections>
@@ -346,7 +346,7 @@
                                     <textField verticalHuggingPriority="750" id="706">
                                         <rect key="frame" x="5" y="456" width="507" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="No action selected" id="707">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="未选择任何操作" id="707">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -408,31 +408,31 @@
                                         </buttonCell>
                                         <cells>
                                             <column>
-                                                <buttonCell type="radio" title="Do nothing" imagePosition="left" alignment="left" enabled="NO" state="on" tag="1" imageScaling="proportionallyDown" inset="2" id="657">
+                                                <buttonCell type="radio" title="不执行操作" imagePosition="left" alignment="left" enabled="NO" state="on" tag="1" imageScaling="proportionallyDown" inset="2" id="657">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <buttonCell type="radio" title="Press a key:" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="658">
+                                                <buttonCell type="radio" title="按下按键:" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="658">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <buttonCell type="radio" title="Switch to configuration" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="699">
+                                                <buttonCell type="radio" title="切换到配置" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="699">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <buttonCell type="radio" title="Mouse movement" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="733">
+                                                <buttonCell type="radio" title="鼠标移动" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="733">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <buttonCell type="radio" title="Mouse button" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="734">
+                                                <buttonCell type="radio" title="鼠标按键" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="734">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <buttonCell type="radio" title="Mouse scroll" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="735">
+                                                <buttonCell type="radio" title="鼠标滚轮" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="735">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <buttonCell type="radio" title="Toggle mouse scope" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="748">
+                                                <buttonCell type="radio" title="切换鼠标作用域" imagePosition="left" alignment="left" enabled="NO" imageScaling="proportionallyDown" inset="2" id="748">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
@@ -448,8 +448,8 @@
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="rounded" trackingMode="selectOne" id="745">
                                             <font key="font" metaFont="system"/>
                                             <segments>
-                                                <segment label="Left" width="87" selected="YES"/>
-                                                <segment label="Right" width="86" tag="1"/>
+                                                <segment label="左" width="87" selected="YES"/>
+                                                <segment label="右" width="86" tag="1"/>
                                             </segments>
                                         </segmentedCell>
                                         <connections>
@@ -462,8 +462,8 @@
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="rounded" trackingMode="selectOne" id="750">
                                             <font key="font" metaFont="system"/>
                                             <segments>
-                                                <segment label="Up" width="87" selected="YES"/>
-                                                <segment label="Down" width="86" tag="1"/>
+                                                <segment label="上" width="87" selected="YES"/>
+                                                <segment label="下" width="86" tag="1"/>
                                             </segments>
                                         </segmentedCell>
                                         <connections>
@@ -476,8 +476,8 @@
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="rounded" trackingMode="selectOne" id="755">
                                             <font key="font" metaFont="system"/>
                                             <segments>
-                                                <segment label="Horizontal" width="87" selected="YES"/>
-                                                <segment label="Vertical" width="86" tag="1"/>
+                                                <segment label="水平" width="87" selected="YES"/>
+                                                <segment label="垂直" width="86" tag="1"/>
                                             </segments>
                                         </segmentedCell>
                                         <connections>
@@ -496,14 +496,14 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="AC1F5C48-4C16-4C9D-9779-B783AF35E2E1" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="487">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="EC49C240-1D96-41C2-AD75-D75EEB29EDEA" label="Configurations" paletteLabel="Configurations" tag="-1" image="NSMultipleDocuments" catalog="system" id="495">
+                    <toolbarItem implicitItemIdentifier="EC49C240-1D96-41C2-AD75-D75EEB29EDEA" label="配置" paletteLabel="配置" tag="-1" image="NSMultipleDocuments" catalog="system" id="495">
                         <size key="minSize" width="22" height="22"/>
                         <size key="maxSize" width="22" height="22"/>
                         <connections>
                             <action selector="toggle:" target="452" id="498"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="42CA6E7F-AC4A-4681-98B6-B9901269E463" label="Start" paletteLabel="Start/Stop" tag="-1" image="NSGoRightTemplate" catalog="system" id="608">
+                    <toolbarItem implicitItemIdentifier="42CA6E7F-AC4A-4681-98B6-B9901269E463" label="启动" paletteLabel="启动/停止" tag="-1" image="NSGoRightTemplate" catalog="system" id="608">
                         <size key="minSize" width="29" height="27"/>
                         <size key="maxSize" width="29" height="27"/>
                         <connections>

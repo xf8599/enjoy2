@@ -82,6 +82,7 @@
 	[tableView reloadData];
 	[tableView selectRow: ([configs count]-1) byExtendingSelection: NO];
 	[tableView editColumn: 0 row:([configs count]-1) withEvent:nil select:YES];
+	[self save];
 }
 -(IBAction) removePressed: (id)sender {
 	// save changes first
@@ -101,8 +102,9 @@
 		}
 	}
 	[appController configsListChanged];
-	
+
 	[tableView reloadData];
+	[self save];
 }
 
 -(void)tableViewSelectionDidChange:(NSNotification*) notify {
@@ -134,6 +136,7 @@
         [targetController refreshConfigsPreservingSelection:YES];
         [tableView reloadData];
         [appController configsListChanged];
+        [self save];
     }
 }
 
@@ -161,10 +164,15 @@
     for (Config *mapping in configs) {
         [mapping saveJSONTo:[self getMappingFilenameFor:mapping]];
     }
-    
-    [[NSUserDefaults standardUserDefaults] setObject:[[self currentNeutralConfig] name] forKey:@"selectedMapping"];
+
+    // Only persist selectedMapping when we have a valid current config,
+    // otherwise NSUserDefaults would throw NSInvalidArgumentException on nil value.
+    Config *neutral = [self currentNeutralConfig];
+    if (neutral != nil && [neutral name] != nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[neutral name] forKey:@"selectedMapping"];
+    }
 	[[NSUserDefaults standardUserDefaults] synchronize];
-    
+
     // TODO: synchronize to web
 }
 -(void) load {
@@ -228,7 +236,14 @@
     }
 	
 	configs = new_mappings;
-	currentConfig = NULL;
+	// Preserve currentConfig if it still exists in the new list;
+	// otherwise default to the first mapping. This avoids leaving
+	// currentConfig as NULL which would crash save() with a nil deref.
+	if (currentConfig == NULL || [configs indexOfObject:currentConfig] == NSNotFound) {
+		if ([configs count] > 0) {
+			currentConfig = [configs objectAtIndex:0];
+		}
+	}
 }
 
 -(void) applicationSwitchedTo: (NSString*) name withPsn: (ProcessSerialNumber) psn {
@@ -249,12 +264,12 @@
         return NULL;
     }
     NSURL *u = [urls objectAtIndex:0];
-    
+
     //NSString *bundle_name = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-    NSString *bundle_name = @"Enjoy2";
+    NSString *bundle_name = @"enjoy3";
     NSURL *as_dir = [u URLByAppendingPathComponent:bundle_name isDirectory:true];
     NSURL *mappings_dir = [as_dir URLByAppendingPathComponent:@"mappings"];
-    
+
     return mappings_dir;
 }
 

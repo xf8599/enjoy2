@@ -63,7 +63,7 @@ void timer_callback(CFRunLoopTimerRef timer, void *ctx) {
 void input_callback(void* inContext, IOReturn inResult, void* inSender, IOHIDValueRef value) {
 	JoystickController* self = (JoystickController*)inContext;
 	IOHIDDeviceRef device = (IOHIDDeviceRef) inSender;
-	
+
 	Joystick* js = [self findJoystickByRef: device];
     ApplicationController *app_controller = [[NSApplication sharedApplication] delegate];
 	if([app_controller active]) {
@@ -71,7 +71,7 @@ void input_callback(void* inContext, IOReturn inResult, void* inSender, IOHIDVal
 		JSAction* mainAction = [js actionForEvent: value];
 		if(!mainAction)
 			return;
-		
+
 		[mainAction notifyEvent: value];
 		NSArray* subactions = [mainAction subActions];
 		if(!subactions)
@@ -91,11 +91,11 @@ void input_callback(void* inContext, IOReturn inResult, void* inSender, IOHIDVal
                 }
                 [target setRunning: [subaction active]];
             }
-            
+
             if ([mainAction isKindOfClass: [JSActionAnalog class]]) {
                 double realValue = [(JSActionAnalog*)mainAction getRealValue: IOHIDValueGetIntegerValue(value)];
                 [target setInputValue: realValue];
-            
+
                 // Add to list of running targets
                 if ([target isContinuous] && [target running]) {
                     if (!objInArray([self runningTargets], target)) {
@@ -109,7 +109,7 @@ void input_callback(void* inContext, IOReturn inResult, void* inSender, IOHIDVal
 		id handler = [js handlerForEvent: value];
 		if(!handler)
 			return;
-	
+
 		[self expandRecursive: handler];
 		self->programmaticallySelecting = YES;
 		[self->outlineView selectRowIndexes: [NSIndexSet indexSetWithIndex: [self->outlineView rowForItem: handler]] byExtendingSelection: NO];
