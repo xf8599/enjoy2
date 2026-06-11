@@ -1,70 +1,108 @@
-Enjoy2
-======
+# enjoy3
 
-Enjoy2 is a simple program for OSX that allows you to transform joystick inputs into keyboard or mouse events.
+一款简洁的 macOS 应用，可以将游戏手柄 / 摇杆的输入转换为键盘或鼠标事件。
 
-If you've ever played a video game which only supports mouse and keyboard input, but you want to use a joystick or gamepad, then Enjoy2 is the program for you. Enjoy2 lets you map your joystick inputs to:
+如果你玩过某些只支持键鼠操作的游戏，但想用手柄或摇杆来玩，那么 enjoy3 就是为你准备的。enjoy3 可以将手柄输入映射为：
 
-* Key events
-* Mouse clicks
-* Mouse movement (for analog sticks)
-* Scrolling
+- 按键事件
+- 鼠标点击
+- 鼠标移动（适用于摇杆）
+- 滚轮滚动
 
-Enjoy2 supports multiple configurations (for different games or programs) and you can even map joystick buttons to change configurations on-the-fly.
+enjoy3 支持多套配置（用于不同游戏或程序），你甚至可以把手柄按键映射为「切换配置」，在游戏过程中实时切换。
 
-Enjoy2 is written by [@nongraphical](http://nongraphical.com) and is based on [Enjoy by Sam McCall](https://yukkurigames.com/enjoyable/). Enjoy2 is MIT-licensed.
+enjoy3 由 [@nongraphical](http://nongraphical.com) 编写，源自 [Enjoy by Sam McCall](https://yukkurigames.com/enjoyable/)。基于 MIT 协议开源。
 
-## How to install
+> 本仓库的 enjoy3 版本在原 Enjoy2 基础上做了若干维护性更新：移除 JSONKit 第三方依赖、改用系统原生 `NSJSONSerialization`，并新增简体中文界面与一键编译脚本。
 
-[Download Enjoy2](http://nongraphical.s3-website-us-east-1.amazonaws.com/releases/Enjoy2.zip), extract the archive, and you're done!
+## 安装与编译
 
-## How to use
+### 一键编译（推荐）
 
-At startup, and when Enjoy2 is paused, press any button or move any analog stick to jump to the configuration for that button or stick. From there, select one of the mapping options from the choices on the right.
+仓库自带 `build.sh`，可以在 arm64 Mac 上一键完成「编译 + 重置辅助功能授权 + 启动」：
 
-To use an analog axis to move the mouse, select the "Analog" sub-item on the left.
+```bash
+./build.sh                # 编译 + 重置授权 + 启动
+./build.sh --no-reset     # 编译 + 启动（不重置权限）
+./build.sh --no-open      # 只编译，不启动
+./build.sh --clean        # 清理后再编译
+./build.sh --help         # 查看参数说明
+```
 
-### Terminology
+首次运行会弹出「辅助功能」授权请求，请在「系统设置 → 隐私与安全性 → 辅助功能」中勾选 enjoy3。
 
-A **mapping** specifies which keys/mouse buttons/mouse movements happen when a joystick button is pressed or axis moved. A **translation** specifies which hardware joystick buttons and axes translate into which virtual buttons and axes.
+### 手动编译
 
-### Mapping modes
+也可以直接使用 Xcode：
 
-Enjoy2 offers two mouse mapping modes: global and single-window. Enjoy2 starts in global mode, but you can set any joystick button to the "toggle mouse scope" action, which will change the mode. If you are using Enjoy2 to play a video game, you may find that one or the other mode offers better compatibility with your game's specific requirements.
+```bash
+xcodebuild -project Enjoy2.xcodeproj -configuration Release -arch arm64 build
+open build/Release/enjoy3.app
+```
 
-### Translations (upcoming feature)
+## 使用方法
 
-**Translations** allow you to specify a mapping (e.g. for playing a specific video game) once and apply it to a variety of similar controllers. For example, you could create a mapping and use it with PS3 controllers and Logitech PC gamepads.
+启动后，或在 enjoy3 处于暂停状态时，按下任意手柄按键或拨动摇杆，应用会自动跳转到该按键 / 摇杆对应的配置项。然后在右侧列表中选择一种映射方式即可。
 
-TODO: upcoming feature.
+如果要把摇杆轴用于鼠标移动，请选中左侧的「Analog」子项。
 
-## Transferring configuration files
+### 术语
 
-All the Enjoy2 configuration files (mappings and translations) are stored in the user's Application Support directory:
+- **映射（Mapping）**：定义按下某个手柄按键或拨动某个轴时，触发哪些键盘按键、鼠标按键或鼠标移动。
+- **翻译（Translation）**：定义不同型号的手柄硬件按键 / 轴如何对应到统一的虚拟按键 / 轴，便于一套映射适配多种手柄。
 
-    /Users/$USERNAME/Library/Application Support/Enjoy2/*
+### 鼠标映射模式
 
-The files are JSON-encoded and should be portable across machines.
+enjoy3 提供两种鼠标映射模式：全局模式与单窗口模式。默认进入全局模式，可以把手柄按键映射为「切换鼠标作用域」来在两种模式之间切换。在某些游戏中，其中一种模式可能与游戏的输入处理逻辑更兼容，可以根据实际情况选择。
 
-## Requirements
+## 配置文件位置
 
-* Mac OS X 10.6 (Snow Leopard) or higher
-* USB gamepad/joystick/controller
+所有配置（映射与翻译）都保存在用户目录下的 Application Support 中：
 
-## Changelog
+```
+~/Library/Application Support/enjoy3/mappings/
+```
 
-Version 1.2
+> 注：旧版本 Enjoy2 的配置保存在 `~/Library/Application Support/Enjoy2/mappings/`，升级到 enjoy3 后需要手动迁移。
 
-* JSON configuration files
+配置文件使用 JSON 格式，可在不同机器之间直接复制。
 
-Version 1.1
+## 系统要求
 
-* Forked from Enjoy
-* Mouse movement support
-* Mouse button support
-* Scrollwheel support
-* Support for two mouse movement modes
+- macOS（推荐 Apple Silicon，原生 arm64 构建；Intel Mac 需自行调整 `build.sh` 中的 `-arch`）
+- USB 游戏手柄 / 摇杆 / 控制器
 
-## Acknowledgements
+## 编译依赖
 
-* JSONKit: [https://github.com/johnezang/JSONKit](https://github.com/johnezang/JSONKit)
+- Xcode（自带 Sparkle.framework、IOHIDEvent 等系统框架）
+- 不再需要 JSONKit（已迁移至 `NSJSONSerialization`）
+
+## 更新日志
+
+### enjoy3
+
+- 移除 JSONKit 第三方依赖，统一使用 `NSJSONSerialization`
+- 修复 `ConfigsController` 在 add / remove / rename 后未调用 `save` 导致配置丢失的 bug
+- 修复 `loadAllFromDir` 后 `currentConfig` 可能为 `NULL` 引发崩溃的 bug
+- 修复 `selectedMapping` 为 `nil` 时 `NSUserDefaults` 抛异常的崩溃
+- 修复 `TargetController commit` 后未立即落盘的 bug
+- 新增简体中文本地化（zh-Hans.lproj）
+- 新增 `build.sh` 一键编译脚本
+- Bundle ID 调整为 `net.tunah.enjoy3`，配置文件目录由 `Enjoy2` 改为 `enjoy3`
+
+### 1.2
+
+- 配置改为 JSON 格式存储
+
+### 1.1
+
+- 从 Enjoy Fork
+- 新增鼠标移动支持
+- 新增鼠标按键支持
+- 新增滚轮支持
+- 支持两种鼠标移动模式
+
+## 致谢
+
+- 原项目 [Enjoy by Sam McCall](https://yukkurigames.com/enjoyable/)
+- [JSONKit](https://github.com/johnezang/JSONKit)（1.x 历史版本使用，enjoy3 已移除依赖）
