@@ -13,3 +13,16 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+# macOS
+.DS_Store
+
+# XcodeGen 生成的工程 (从 project.yml 重新生成)
+enjoy3.xcodeproj/
+
+# 备份文件
+*.xib.bak
+
+# Sparkle 自动更新校验目录 (避免二进制噪声)
+Sparkle.framework/Versions/A/_CodeSignature/
+Sparkle.framework/Versions/A/Resources/Info.plist

@@ -10,7 +10,8 @@ set -e  # 任何步骤失败立即退出
 
 # ---------- 配置 ----------
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECT="$PROJECT_DIR/Enjoy2.xcodeproj"
+PROJECT_YML="$PROJECT_DIR/project.yml"
+PROJECT="$PROJECT_DIR/enjoy3.xcodeproj"
 BUNDLE_ID="net.tunah.enjoy3"
 APP_PATH="$PROJECT_DIR/build/Release/enjoy3.app"
 
@@ -54,9 +55,12 @@ if [ "$DO_CLEAN" -eq 1 ]; then
   rm -rf "$PROJECT_DIR/build"
 fi
 
-# ---------- 步骤 3: 编译 ----------
-log "编译 (arm64 Release)..."
+# ---------- 步骤 3: 生成 Xcode 工程 + 编译 ----------
+log "生成 Xcode 工程 (xcodegen)..."
 cd "$PROJECT_DIR"
+xcodegen generate 2>&1 | tail -5
+
+log "编译 (arm64 Release)..."
 xcodebuild \
   -project "$PROJECT" \
   -configuration Release \

@@ -1,0 +1,51 @@
+import Cocoa
+
+/// CGKeyCode → 显示名查表.
+enum CKeys {
+    private static let table: [Int: String] = [
+        // F1-F19
+        0x7a: "F1", 0x78: "F2", 0x63: "F3", 0x76: "F4",
+        0x60: "F5", 0x61: "F6", 0x62: "F7", 0x64: "F8",
+        0x65: "F9", 0x6d: "F10", 0x67: "F11", 0x6f: "F12",
+        0x69: "F13", 0x6b: "F14", 0x71: "F15", 0x6a: "F16",
+        0x40: "F17", 0x4f: "F18", 0x50: "F19",
+        // 字母
+        0x00: "A", 0x0b: "B", 0x08: "C", 0x02: "D", 0x0e: "E",
+        0x03: "F", 0x05: "G", 0x04: "H", 0x22: "I", 0x26: "J",
+        0x28: "K", 0x25: "L", 0x2e: "M", 0x2d: "N", 0x1f: "O",
+        0x23: "P", 0x0c: "Q", 0x0f: "R", 0x01: "S", 0x11: "T",
+        0x20: "U", 0x09: "V", 0x0d: "W", 0x07: "X", 0x10: "Y",
+        0x06: "Z",
+        // 数字
+        0x1d: "0", 0x12: "1", 0x13: "2", 0x14: "3", 0x15: "4",
+        0x17: "5", 0x16: "6", 0x1a: "7", 0x1c: "8", 0x19: "9",
+        // 修饰键
+        0x35: "Esc", 0x31: "Space", 0x24: "Return", 0x30: "Tab",
+        0x33: "Delete", 0x75: "Delete Forward",
+        0x7b: "Left Arrow", 0x7c: "Right Arrow",
+        0x7d: "Down Arrow", 0x7e: "Up Arrow",
+        // 符号键
+        0x18: "=", 0x21: "[", 0x1e: "]", 0x2a: "\\",
+        0x29: ";", 0x27: "'", 0x32: "`", 0x2b: ",",
+        0x2f: ".", 0x2c: "/",
+        // 小键盘
+        0x52: "Numpad 0", 0x53: "Numpad 1", 0x54: "Numpad 2",
+        0x55: "Numpad 3", 0x56: "Numpad 4", 0x57: "Numpad 5",
+        0x58: "Numpad 6", 0x59: "Numpad 7", 0x5a: "Numpad 8",
+        0x5b: "Numpad 9",
+        0x43: "Numpad *", 0x45: "Numpad +", 0x4e: "Numpad -",
+        0x4b: "Numpad /", 0x4c: "Numpad Enter",
+        // 其他
+        0x39: "Caps Lock",
+        0x36: "Command", 0x37: "Command (Right)",
+        0x38: "Shift", 0x3c: "Shift (Right)",
+        0x3a: "Option", 0x3d: "Option (Right)",
+        0x3b: "Control", 0x3e: "Control (Right)",
+        0x72: "Help", 0x73: "Home", 0x74: "Page Up",
+        0x79: "Page Down", 0x77: "End",
+    ]
+
+    static func name(for keyCode: Int) -> String {
+        return table[keyCode] ?? String(format: "0x%x", keyCode)
+    }
+}

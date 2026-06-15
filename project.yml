@@ -1,0 +1,83 @@
+name: enjoy3
+options:
+  bundleIdPrefix: net.tunah
+  deploymentTarget:
+    macOS: "12.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "12.0"
+    PRODUCT_MODULE_NAME: enjoy3
+    PRODUCT_BUNDLE_IDENTIFIER: net.tunah.enjoy3
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGNING_REQUIRED: NO
+    CODE_SIGNING_ALLOWED: NO
+    DEVELOPMENT_TEAM: ""
+    SWIFT_OBJC_BRIDGING_HEADER: Sources/enjoy3-Bridging-Header.h
+    GCC_PRECOMPILE_PREFIX_HEADER: NO
+    CLANG_ENABLE_OBJC_ARC: YES
+    SWIFT_OPTIMIZATION_LEVEL: "-O"
+    ARCHS: "$(ARCHS_STANDARD)"
+    ONLY_ACTIVE_ARCH: YES
+    ENABLE_HARDENED_RUNTIME: NO
+    LD_RUNPATH_SEARCH_PATHS:
+      - "@executable_path/../Frameworks"
+    INFOPLIST_FILE: Info.plist
+    GENERATE_INFOPLIST_FILE: NO
+    ASSETCATALOG_COMPILER_APPICON_NAME: ""
+    COMBINE_HIDPI_IMAGES: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    FRAMEWORK_SEARCH_PATHS:
+      - "$(inherited)"
+      - "$(SRCROOT)"
+
+targets:
+  enjoy3:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+      - path: English.lproj/MainMenu.xib
+      - path: English.lproj/TranslationWindow.xib
+      - path: zh-Hans.lproj/MainMenu.xib
+      - path: zh-Hans.lproj/TranslationWindow.xib
+      - path: English.lproj/InfoPlist.strings
+        buildPhase: resources
+      - path: zh-Hans.lproj/InfoPlist.strings
+        buildPhase: resources
+      - path: JoystickImages
+        type: folder
+      - path: icon.icns
+      - path: Credits.rtf
+      - path: dsa_pub.pem
+    dependencies:
+      - sdk: Cocoa.framework
+      - sdk: IOKit.framework
+      - sdk: Carbon.framework
+      - sdk: CoreGraphics.framework
+      - sdk: ApplicationServices.framework
+    postBuildScripts:
+      - name: Copy Sparkle.framework
+        script: |
+          FRAMEWORK_SRC="${SRCROOT}/Sparkle.framework"
+          APP_FRAMEWORKS="${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Frameworks"
+          if [ ! -d "$FRAMEWORK_SRC" ]; then
+            echo "warning: $FRAMEWORK_SRC not found"
+          else
+            mkdir -p "$APP_FRAMEWORKS"
+            /usr/bin/rsync -a --delete --exclude='*.plist' --exclude='Autoupdate.app' "$FRAMEWORK_SRC/" "$APP_FRAMEWORKS/Sparkle.framework/"
+          fi
+        runOnlyWhenInstalling: false
+
+schemes:
+  enjoy3:
+    build:
+      targets:
+        enjoy3: all
+    run:
+      config: Release
+    archive:
+      config: Release
