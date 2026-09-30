@@ -36,7 +36,6 @@
 - 多个 Config (mapping), 可在 Dock 菜单切换, 可按应用自动切换
 - 80Hz CFRunLoopTimer 驱动连续型 Target (鼠标移动)
 - 中英文本地化 (英文 + 简体中文)
-- Sparkle 1.x 自动更新 (appcast S3 + DSA 验签)
 - 工具栏 Start/Stop 开关
 
 **目标**: 把全部业务代码从 Objective-C (MRC) 改写为 Swift, 工程从老 pbxproj 升级为 XcodeGen, 清理死代码 (JSONKit + v1.1 兼容), 同时功能 100% 保持.
@@ -92,12 +91,10 @@ cp -R Enjoy2.xcodeproj Enjoy2.xcodeproj.backup
 ├── zh-Hans.lproj/MainMenu.xib  # 需改 customClass
 ├── English.lproj/TranslationWindow.xib  # 无 customClass
 ├── zh-Hans.lproj/TranslationWindow.xib  # 无 customClass
-├── Sparkle.framework/          # 嵌入
-├── Updates/                    # appcast + changelog
 ├── JoystickImages/dualshock.png  # 资源
 ├── Info.plist                  # 保留
 ├── enjoy3_Prefix.pch           # 待删除
-├── icon.icns, Credits.rtf, dsa_pub.pem, README.md, license.txt  # 资源
+├── icon.icns, Credits.rtf, README.md, license.txt  # 资源
 ├── build.sh                    # 需更新
 └── *.h / *.m (20+ 业务文件)    # 翻译为 Swift
 ```
@@ -145,7 +142,7 @@ mkdir -p Sources/{App,Targets,Actions,Devices,Config,UI}
 │   │   └── KeyInputTextView.swift
 │   └── CKeys.swift
 ├── (保留) Info.plist, English.lproj/, zh-Hans.lproj/, icon.icns, Credits.rtf,
-│        dsa_pub.pem, Sparkle.framework/, JoystickImages/, Updates/, README.md, license.txt
+│        JoystickImages/, README.md, license.txt
 ├── (删除) Enjoy2.xcodeproj/, JSONKit/, enjoy3_Prefix.pch, *.h, *.m, main.m
 └── (修改) build.sh
 ```
@@ -249,12 +246,6 @@ targets:
         type: folder
       - path: icon.icns
       - path: Credits.rtf
-      - path: dsa_pub.pem
-      - path: Sparkle.framework
-        type: folder
-        buildPhase: copyFiles
-        copyFiles:
-          destination: frameworks
     dependencies:
       - sdk: Cocoa.framework
       - sdk: IOKit.framework
@@ -283,9 +274,6 @@ schemes:
 #import <Cocoa/Cocoa.h>
 #import <IOKit/hid/IOHIDLib.h>
 #import <Carbon/Carbon.h>
-
-// Sparkle 1.x 是 OC 框架, 直接 import 主头即可被 Swift 调用
-#import <Sparkle/Sparkle.h>
 
 #endif
 ```
@@ -2299,15 +2287,6 @@ e.post(tap: .cghidEventTap)
 - `Config.loadSkel(fromJSON:)` 阶段一解析失败时跳过该文件, 不崩溃
 - `Config.load(fromJSON:)` 阶段二对 `Target.unstringify` 返回 nil 时跳过该 entry
 - 在 `ConfigsController.load` 中 `if currentConfig == nil, !configs.isEmpty { currentConfig = configs.first }`
-
-### Bug 10: Sparkle 自动更新失效
-
-**症状**: 菜单中 "Check for Updates" 不响应
-**原因**: Sparkle.framework 未嵌入或 Info.plist 中 SUFeedURL 丢失
-**修复**:
-- 检查 `build/Release/enjoy3.app/Contents/Frameworks/Sparkle.framework` 存在
-- 检查 Info.plist 中 `SUFeedURL` 和 `SUPublicDSAKeyFile` 字段存在
-- 检查 `dsa_pub.pem` 在 `Contents/Resources/`
 
 ### Bug 11: `productId = vendorId` 原 OC bug 保留与否
 

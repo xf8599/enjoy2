@@ -26,12 +26,6 @@
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="检查更新…" id="760">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="checkForUpdates:" target="759" id="761"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -640,7 +634,6 @@
                 <outlet property="title" destination="706" id="709"/>
             </connections>
         </customObject>
-        <customObject id="759" customClass="SUUpdater" customModule="enjoy3" customModuleProvider="target"/>
     </objects>
     <resources>
         <image name="NSAddTemplate" catalog="system" width="18" height="16"/>

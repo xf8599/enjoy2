@@ -93,12 +93,12 @@ enjoy3 提供两种鼠标映射模式：全局模式与单窗口模式。默认�
 
 ## 系统要求
 
-- macOS（推荐 Apple Silicon，原生 arm64 构建；Intel Mac 需自行调整 `build.sh` 中的 `-arch`）
+- macOS 12+（Apple Silicon，原生 arm64 构建）
 - USB 游戏手柄 / 摇杆 / 控制器
 
 ## 编译依赖
 
-- Xcode 14+（自带 Sparkle.framework、IOHIDEvent 等系统框架）
+- Xcode 14+（IOHIDEvent 等系统框架）
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen) 2.38+（从 `project.yml` 生成 `.xcodeproj`）
 - 不再需要 JSONKit（已迁移至 `NSJSONSerialization`）
 

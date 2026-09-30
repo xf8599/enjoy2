@@ -23,6 +23,8 @@ enjoy3.xcodeproj/
 # 备份文件
 *.xib.bak
 
-# Sparkle 自动更新校验目录 (避免二进制噪声)
-Sparkle.framework/Versions/A/_CodeSignature/
-Sparkle.framework/Versions/A/Resources/Info.plist
+# 构建产物统一放项目内 .build/
+.build/
+
+# AI 工具本地配置
+.pi/
