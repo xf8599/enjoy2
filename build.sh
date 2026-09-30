@@ -13,7 +13,7 @@ PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_YML="$PROJECT_DIR/project.yml"
 PROJECT="$PROJECT_DIR/enjoy3.xcodeproj"
 BUNDLE_ID="net.tunah.enjoy3"
-APP_PATH="$PROJECT_DIR/build/Release/enjoy3.app"
+APP_PATH="$PROJECT_DIR/.build/Build/Products/enjoy3.app"
 
 # ---------- 颜色输出 ----------
 G='\033[0;32m'  # green

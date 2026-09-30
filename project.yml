@@ -30,6 +30,12 @@ settings:
     ASSETCATALOG_COMPILER_APPICON_NAME: ""
     COMBINE_HIDPI_IMAGES: YES
     ENABLE_USER_SCRIPT_SANDBOXING: NO
+    # 构建产物统一放到项目内 .build/，避免污染 ~/Library/Developer/Xcode/DerivedData/
+    CONFIGURATION_BUILD_DIR: $(SRCROOT)/.build/Build/Products
+    CONFIGURATION_TEMP_DIR: $(SRCROOT)/.build/Build/Intermediates.noindex
+    OBJROOT: $(SRCROOT)/.build
+    SYMROOT: $(SRCROOT)/.build
+    IDE_BUILD_LOCATION_STYLE: Absolute
     FRAMEWORK_SEARCH_PATHS:
       - "$(inherited)"
       - "$(SRCROOT)"
@@ -52,25 +58,12 @@ targets:
         type: folder
       - path: icon.icns
       - path: Credits.rtf
-      - path: dsa_pub.pem
     dependencies:
       - sdk: Cocoa.framework
       - sdk: IOKit.framework
       - sdk: Carbon.framework
       - sdk: CoreGraphics.framework
       - sdk: ApplicationServices.framework
-    postBuildScripts:
-      - name: Copy Sparkle.framework
-        script: |
-          FRAMEWORK_SRC="${SRCROOT}/Sparkle.framework"
-          APP_FRAMEWORKS="${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Frameworks"
-          if [ ! -d "$FRAMEWORK_SRC" ]; then
-            echo "warning: $FRAMEWORK_SRC not found"
-          else
-            mkdir -p "$APP_FRAMEWORKS"
-            /usr/bin/rsync -a --delete --exclude='*.plist' --exclude='Autoupdate.app' "$FRAMEWORK_SRC/" "$APP_FRAMEWORKS/Sparkle.framework/"
-          fi
-        runOnlyWhenInstalling: false
 
 schemes:
   enjoy3:
