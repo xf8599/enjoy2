@@ -79,7 +79,7 @@ import Carbon
         jsController.setup()
         // 旧的 NSDrawer 已删除, config 列表现在在主窗口最左 panel 中, 无需 drawer.open()
         targetController.isEnabled = false
-        setActive(false)
+        setActive(true)
         configsController.load()
 
         // 安装 Carbon 应用切换事件
